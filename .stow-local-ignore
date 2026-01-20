@@ -4,3 +4,4 @@ LICENSE
 .git
 .gitignore
 gnome/
+install/
