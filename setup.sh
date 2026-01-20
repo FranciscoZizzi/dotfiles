@@ -39,3 +39,10 @@ if [ -f ~/dotfiles/gnome/load_settings.sh ]; then
 fi
 
 echo_success "Setup complete! Please restart your terminal."
+
+# 5. Install latest apps
+echo_info "Installing latest apps..."
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+	bash ~/dotfiles/install/apps.sh
+fi
+
