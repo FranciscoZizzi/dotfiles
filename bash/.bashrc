@@ -134,3 +134,14 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$PATH:/home/francisco-zizzi/.local/bin"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Helper for dotfiles
+dotsync() {
+	local message=${1:-"Update dotfiles"}
+	cd ~/dotfiles
+	git add .
+	git commit -m "$message"
+	git push
+	cd -> /dev/null
+}
+
