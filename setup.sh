@@ -9,6 +9,7 @@ echo_info "Starting Ubuntu dotfiles setup..."
 # 1. Install dependencies
 echo_info "Installing Stow and Git..."
 sudo apt update && sudo apt install -y stow git
+sudo apt install curl -y
 
 # 2. Handle existing .bashrc (Move it to a backup)
 if [ -f ~/.bashrc ] && [ ! -L ~/.bashrc ]; then
