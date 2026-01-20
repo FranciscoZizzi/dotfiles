@@ -1,7 +1,5 @@
 #!/bin/bash
 
-USER_HOME=$HOME
-
 echo_info() { echo -e "\e[34m[INFO]\e[0m $1"; }
 echo_success() { echo -e "\e[32m[SUCCESS]\e[0m $1"; }
 
@@ -15,11 +13,11 @@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x8
 tar xzvf nvim-linux-x86_64.tar.gz
 
 # Clean up old version if it exists
-rm -rf "$USER_HOME/.local/bin/nvim" "$USER_HOME/.local/lib/nvim" "$USER_HOME/.local/share/nvim" "/opt/nvim-linux64"
+rm -rf ~/.local/bin/nvim ~/.local/lib/nvim ~/.local/share/nvim /opt/nvim-linux64
 
 # Move it to ~/.local (a standard place for user-installed binaries)
 # This keeps it out of system folders but accessible to your user
-mkdir -p "$USER_HOME/.local"
+mkdir -p /opt/
 cp -r nvim-linux-x86_64/* /opt/
 
 # Clean up the downloaded files
