@@ -20,7 +20,7 @@ rm -rf ~/.local/bin/nvim ~/.local/lib/nvim ~/.local/share/nvim /opt/nvim-linux64
 # Move it to ~/.local (a standard place for user-installed binaries)
 # This keeps it out of system folders but accessible to your user
 mkdir -p /opt/
-cp -r nvim-linux-x86_64/* /opt/
+sudo cp -r nvim-linux-x86_64/* /opt/
 
 # Clean up the downloaded files
 rm -rf nvim-linux-x86_64 nvim-linux-x86_64.tar.gz
@@ -29,6 +29,6 @@ echo_success "Neovim installed to /opt/"
 
 # 2. Install Ghostty
 echo_info "Installing Ghostty..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
+sudo /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/mkasberg/ghostty-ubuntu/HEAD/install.sh)"
 
 echo_success "Neovim and Ghostty are now at their latest versions!"
