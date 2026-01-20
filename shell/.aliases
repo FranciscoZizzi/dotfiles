@@ -31,6 +31,12 @@ fi
 # Helper for dotfiles
 dotsync() {
 	local message=${1:-"Update dotfiles"}
+
+	# Update GNOME settings
+	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+		dconf dump / > ~/dotfiles/dconf/gnome-settings.dconf
+	fi
+
 	cd ~/dotfiles
 	git add .
 	git commit -m "$message"
