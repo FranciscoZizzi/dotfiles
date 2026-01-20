@@ -105,8 +105,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # Created by `pipx` on 2025-07-28 16:14:13
 export PATH="$PATH:/home/francisco-zizzi/.local/bin"
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Alias definitions.
 
 if [ -f ~/.aliases ]; then
