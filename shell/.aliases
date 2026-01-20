@@ -1,0 +1,39 @@
+# --- COLOR SUPPORT & LS ALIASES ---
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Check if the terminal supports colors and dircolors exists
+    if [ -x /usr/bin/dircolors ]; then
+        alias ls='ls --color=auto'
+        alias grep='grep --color=auto'
+        alias fgrep='fgrep --color=auto'
+        alias egrep='egrep --color=auto'
+    fi
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    # macOS (BSD) color flags
+    export CLICOLOR=1
+    alias ls='ls -G'
+    alias grep='grep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+fi
+
+
+
+# Helper for dotfiles
+dotsync() {
+	local message=${1:-"Update dotfiles"}
+	cd ~/dotfiles
+	git add .
+	git commit -m "$message"
+	git push
+	cd - > /dev/null
+}
