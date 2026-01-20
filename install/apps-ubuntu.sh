@@ -13,12 +13,12 @@ curl -LO https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x8
 tar xzvf nvim-linux-x86_64.tar.gz
 
 # Clean up old version if it exists
-rm -rf ~/.local/bin/nvim ~/.local/lib/nvim ~/.local/share/nvim
+rm -rf ~/.local/bin/nvim ~/.local/lib/nvim ~/.local/share/nvim /opt/nvim-linux64
 
 # Move it to ~/.local (a standard place for user-installed binaries)
 # This keeps it out of system folders but accessible to your user
 mkdir -p ~/.local
-cp -r nvim-linux-x86_64/* ~/.local/
+cp -r nvim-linux-x86_64/* /opt/
 
 # Clean up the downloaded files
 rm -rf nvim-linux-x86_64 nvim-linux-x86_64.tar.gz
