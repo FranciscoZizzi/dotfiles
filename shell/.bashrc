@@ -103,7 +103,6 @@ export NVM_DIR="$HOME/.nvm"
 
 . "$HOME/.cargo/env"
 
-export PATH="$PATH:/opt/nvim-linux64/bin":
 export ANDROID_HOME=/home/francisco-zizzi/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
@@ -116,3 +115,5 @@ if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi
 
+# Add this to your .bashrc if it's not there
+export PATH="$HOME/.local/share/bob/nvim-bin:$PATH"

@@ -1,16 +1,19 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  branch = "main",
   build = ":TSUpdate",
-  config = function()
-    local configs = require("nvim-treesitter.configs")
- 
-    configs.setup({
-      ensure_installed = {
-        "lua", "vim", "vimdoc", "javascript", "html", "typescript", "clojure", "rust"
-      },
-      sync_install = false,
-      highlight = { enable = true },
-      indent = { enable = true },
-    })
-  end
+  event = { "BufReadPost", "BufNewFile" },
+  opts = {
+    -- The configuration now goes directly inside the 'opts' table
+    ensure_installed = { "lua", "vim", "vimdoc", "javascript", "html", "typescript", "clojure", "rust", "c_sharp", "hlsl" },
+    highlight = { 
+      enable = true,
+      additional_vim_regex_highlighting = false,
+    },
+    indent = { enable = true },
+  },
+  config = function(_, opts)
+    -- In the new version, we call setup on the main module, not .configs
+    require("nvim-treesitter").setup(opts)
+  end,
 }
